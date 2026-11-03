@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ASTRYX — VIP Luxury Online Casino</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts: Playfair Display & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              300: '#f9e8a2',
+              400: '#f3e5ab',
+              500: '#d4af37',
+              600: '#aa820a',
+              700: '#856404'
+            },
+            darkBg: '#060608',
+            darkCard: '#111116',
+            darkBorder: '#272732'
+          },
+          fontFamily: {
+            playfair: ['Playfair Display', 'serif'],
+            montserrat: ['Montserrat', 'sans-serif']
+          },
+          boxShadow: {
+            'gold-glow': '0 0 30px rgba(212, 175, 55, 0.45)',
+            'gold-sm': '0 0 12px rgba(212, 175, 55, 0.25)',
+            'vip': '0 15px 35px rgba(0, 0, 0, 0.95)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      touch-action: manipulation;
+    }
+
+    body {
+      background-color: #060608;
+      color: #e4e4e7;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Gold Metallic Gradients */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fff5b8 0%, #d4af37 50%, #996e00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-gradient-bg {
+      background: linear-gradient(135deg, #fceb92 0%, #d4af37 50%, #856404 100%);
+    }
+    .dark-card-gradient {
+      background: linear-gradient(180deg, #161620 0%, #0a0a0f 100%);
+    }
+
+    /* Floating Chips Background Animation */
+    .floating-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .floating-chip {
+      position: absolute;
+      display: block;
+      list-style: none;
+      width: 36px;
+      height: 36px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 2px dashed rgba(212, 175, 55, 0.4);
+      border-radius: 50%;
+      bottom: -150px;
+      animation: animateChips 18s linear infinite;
+    }
+    .floating-chip:nth-child(1) { left: 8%; width: 44px; height: 44px; animation-delay: 0s; }
+    .floating-chip:nth-child(2) { left: 22%; width: 28px; height: 28px; animation-delay: 3s; animation-duration: 15s; }
+    .floating-chip:nth-child(3) { left: 55%; width: 50px; height: 50px; animation-delay: 6s; }
+    .floating-chip:nth-child(4) { left: 78%; width: 36px; height: 36px; animation-delay: 1s; animation-duration: 20s; }
+    .floating-chip:nth-child(5) { left: 92%; width: 30px; height: 30px; animation-delay: 8s; }
+
+    @keyframes animateChips {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+      100% { transform: translateY(-1300px) rotate(720deg); opacity: 0; }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a0e; }
+    ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #f3e5ab; }
+
+    /* Shimmer effect */
+    .shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.25) 50%,
+        transparent 70%
+      );
+      transform: rotate(30deg);
+      animation: shimmerAnim 4s infinite;
+    }
+    @keyframes shimmerAnim {
+      0% { transform: translateX(-100%) rotate(30deg); }
+      100% { transform: translateX(100%) rotate(30deg); }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-gold-500 selection:text-black relative">
+
+  <!-- Background Animated Chips -->
+  <div class="floating-container">
+    <div class="floating-chip"></div>
+    <div class="floating-chip"></div>
+    <div class="floating-chip"></div>
+    <div class="floating-chip"></div>
+    <div class="floating-chip"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-darkBg/95 backdrop-blur-md border-b border-gold-500/30 shadow-2xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
+      
+      <!-- BRAND LOGO -->
+      <a href="#" class="flex items-center space-x-2.5 group shrink-0">
+        <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full gold-gradient-bg p-0.5 shadow-gold-sm group-hover:shadow-gold-glow transition-all duration-300">
+          <div class="w-full h-full bg-black rounded-full flex items-center justify-center">
+            <i class="fa-solid fa-gem text-gold-400 text-base sm:text-lg group-hover:scale-110 transition-transform"></i>
+          </div>
+        </div>
+        <div>
+          <span class="font-playfair text-xl sm:text-2xl font-black tracking-widest gold-gradient-text uppercase block leading-none">ASTRYX</span>
+          <span class="text-[8px] sm:text-[9px] tracking-[0.25em] text-gray-400 font-bold block mt-0.5 uppercase">LUXURY CASINO</span>
+        </div>
+      </a>
+
+      <!-- NAVIGATION LINKS (DESKTOP) -->
+      <nav class="hidden lg:flex items-center space-x-6 text-xs sm:text-sm font-semibold tracking-wide">
+        <a href="#games" class="text-gray-300 hover:text-gold-400 transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-gamepad text-gold-500/80"></i> <span data-i18n="nav_games">Иигры</span>
+        </a>
+        <a href="#bonuses" class="text-gray-300 hover:text-gold-400 transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-gift text-gold-500/80"></i> <span data-i18n="nav_bonuses">Бонусы</span>
+        </a>
+        <button onclick="openVipModal()" class="text-gray-300 hover:text-gold-400 transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-crown text-gold-500/80"></i> <span data-i18n="nav_vip">VIP-клуб</span>
+        </button>
+        <a href="#about" class="text-gray-300 hover:text-gold-400 transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-shield-halved text-gold-500/80"></i> <span data-i18n="nav_about">О нас</span>
+        </a>
+        <button onclick="openSupportModal()" class="text-gray-300 hover:text-gold-400 transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-headset text-gold-500/80"></i> <span data-i18n="nav_support">Поддержка 24/7</span>
+        </button>
+      </nav>
+
+      <!-- BALANCE & AUTH & LANG -->
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        
+        <!-- LANGUAGE SWITCHER -->
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-lg border border-gold-500/40 text-[11px] sm:text-xs font-bold text-gold-400 hover:bg-gold-500/15 transition-all">
+          <i class="fa-solid fa-globe mr-1"></i> <span id="currentLangLabel">RU</span>
+        </button>
+
+        <!-- BALANCE BAR -->
+        <div class="flex items-center bg-darkCard border border-gold-500/40 rounded-full px-2.5 sm:px-4 py-1 sm:py-1.5 shadow-inner">
+          <div class="flex flex-col text-right mr-1.5 sm:mr-3">
+            <span class="text-[8px] sm:text-[10px] text-gray-400 font-medium uppercase tracking-wider" data-i18n="balance_label">Баланс</span>
+            <span id="playerBalanceDisplay" class="text-xs sm:text-sm font-extrabold text-gold-400 font-mono">$0.00</span>
+          </div>
+          <button onclick="openCashierModal()" class="shimmer gold-gradient-bg text-black font-extrabold text-[10px] sm:text-xs px-2 sm:px-3.5 py-1 sm:py-1.5 rounded-full hover:brightness-110 transition-transform active:scale-95 shadow-md flex items-center gap-1">
+            <i class="fa-solid fa-wallet"></i> <span class="hidden sm:inline" data-i18n="deposit_btn">Пополнить</span>
+          </button>
+        </div>
+
+        <!-- ADMIN PANEL TOGGLE BUTTON -->
+        <button onclick="openAdminModal()" title="Панель администратора (Jonibek Tursunov)" class="p-2 rounded-lg border border-gold-500/40 text-xs font-bold text-gold-400 hover:bg-gold-500/20 transition-all flex items-center justify-center">
+          <i class="fa-solid fa-user-shield text-gold-400 text-sm"></i>
+        </button>
+
+        <!-- AUTH BUTTONS -->
+        <div id="authButtonsGroup" class="flex items-center space-x-1.5 sm:space-x-2">
+          <button onclick="openAuthModal('login')" class="px-2 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold text-gray-200 hover:text-gold-400 transition-all">
+            <span data-i18n="login_btn">Вход</span>
+          </button>
+          <button onclick="openAuthModal('register')" class="shimmer gold-gradient-bg text-black font-extrabold text-[11px] sm:text-xs px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg shadow-gold-sm hover:shadow-gold-glow transition-all active:scale-95">
+            <span data-i18n="register_btn">Регистрация</span>
+          </button>
+        </div>
+
+        <!-- MOBILE NAV BUTTON -->
+        <button onclick="toggleMobileNav()" class="lg:hidden text-gold-400 text-lg focus:outline-none p-1">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- MOBILE NAVIGATION DROPDOWN -->
+    <div id="mobileNav" class="hidden lg:hidden bg-darkCard border-b border-gold-500/30 px-6 py-4 space-y-3">
+      <a href="#games" onclick="toggleMobileNav()" class="block text-gray-300 hover:text-gold-400 font-medium text-sm" data-i18n="nav_games">Игры</a>
+      <a href="#bonuses" onclick="toggleMobileNav()" class="block text-gray-300 hover:text-gold-400 font-medium text-sm" data-i18n="nav_bonuses">Бонусы</a>
+      <button onclick="toggleMobileNav(); openVipModal();" class="block w-full text-left text-gray-300 hover:text-gold-400 font-medium text-sm" data-i18n="nav_vip">VIP-клуб</button>
+      <a href="#about" onclick="toggleMobileNav()" class="block text-gray-300 hover:text-gold-400 font-medium text-sm" data-i18n="nav_about">О нас</a>
+      <button onclick="toggleMobileNav(); openSupportModal();" class="block w-full text-left text-gray-300 hover:text-gold-400 font-medium text-sm" data-i18n="nav_support">Поддержка 24/7</button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-10 sm:space-y-12 relative z-10">
+
+    <!-- HERO CAROUSEL -->
+    <section class="relative rounded-2xl overflow-hidden border border-gold-500/40 shadow-2xl bg-darkCard">
+      <div id="bannerCarousel" class="relative w-full min-h-[360px] sm:min-h-[420px] flex items-center">
+        
+        <!-- Banner 1 -->
+        <div class="banner-slide absolute inset-0 transition-opacity duration-700 opacity-100 flex items-center p-6 sm:p-12 dark-card-gradient">
+          <div class="max-w-xl z-10 space-y-3 sm:space-y-4">
+            <span class="inline-block px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/40 text-gold-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest" data-i18n="banner1_tag">
+              ⚡ Приветственный пакет ASTRYX
+            </span>
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-playfair font-black text-white leading-tight">
+              <span class="gold-gradient-text" data-i18n="banner1_title">+25% К ДЕПОЗИТУ</span><br>
+              <span data-i18n="banner1_subtitle">НА ПЕРВОЕ ПОПОЛНЕНИЕ</span>
+            </h1>
+            <p class="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed" data-i18n="banner1_desc">
+              Пополните счет прямо сейчас, получите эксклюзивный бонус 25% и начните путь к джекпоту в элитном клубе ASTRYX.
+            </p>
+            <div class="pt-2 flex flex-wrap gap-3">
+              <button onclick="openCashierModal()" class="shimmer gold-gradient-bg text-black font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-gold-glow hover:brightness-110 transition-transform active:scale-95" data-i18n="banner1_btn">
+                Получить Бонус 25%
+              </button>
+            </div>
+          </div>
+          <div class="hidden lg:flex absolute right-12 top-1/2 -translate-y-1/2 items-center justify-center">
+            <div class="relative w-64 h-64 flex items-center justify-center">
+              <div class="absolute inset-0 rounded-full border-2 border-dashed border-gold-500/40 animate-[spin_20s_linear_infinite]"></div>
+              <i class="fa-solid fa-coins text-7xl text-gold-400 drop-shadow-[0_0_35px_rgba(212,175,55,0.6)] animate-bounce"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banner 2 -->
+        <div class="banner-slide absolute inset-0 transition-opacity duration-700 opacity-0 pointer-events-none flex items-center p-6 sm:p-12 dark-card-gradient">
+          <div class="max-w-xl z-10 space-y-3 sm:space-y-4">
+            <span class="inline-block px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/40 text-gold-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest" data-i18n="banner2_tag">
+              👑 Привилегии ASTRYX VIP
+            </span>
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-playfair font-black text-white leading-tight">
+              <span class="gold-gradient-text" data-i18n="banner2_title">VIP СТАТУСЫ</span><br>
+              <span data-i18n="banner2_subtitle">И ПЕРСОНАЛЬНЫЙ КЕШБЭК</span>
+            </h1>
+            <p class="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed" data-i18n="banner2_desc">
+              Повышайте уровень игрока, получайте индивидуальные подарки, ускоренные выплаты и личного менеджера 24/7.
+            </p>
+            <div class="pt-2 flex flex-wrap gap-3">
+              <button onclick="openVipModal()" class="shimmer gold-gradient-bg text-black font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-gold-glow hover:brightness-110 transition-transform active:scale-95" data-i18n="banner2_btn">
+                Узнать о VIP Статусах
+              </button>
+            </div>
+          </div>
+          <div class="hidden lg:flex absolute right-16 top-1/2 -translate-y-1/2">
+            <i class="fa-solid fa-crown text-8xl text-gold-400 drop-shadow-[0_0_45px_rgba(212,175,55,0.7)] animate-pulse"></i>
+          </div>
+        </div>
+
+        <!-- Banner 3 -->
+        <div class="banner-slide absolute inset-0 transition-opacity duration-700 opacity-0 pointer-events-none flex items-center p-6 sm:p-12 dark-card-gradient">
+          <div class="max-w-xl z-10 space-y-3 sm:space-y-4">
+            <span class="inline-block px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/40 text-gold-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest" data-i18n="banner3_tag">
+              🎁 Эксклюзивный Промокод
+            </span>
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-playfair font-black text-white leading-tight">
+              <span class="gold-gradient-text">ПРОМОКОД: ASTRYX2026</span><br>
+              <span data-i18n="banner3_subtitle">ПОЛУЧИТЕ $50 НА БАЛАНС</span>
+            </h1>
+            <p class="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed" data-i18n="banner3_desc">
+              Введите промокод в разделе VIP/Промокоды и моментально активируйте ваш подарочный баланс!
+            </p>
+            <div class="pt-2 flex flex-wrap gap-3">
+              <button onclick="openVipModal()" class="shimmer gold-gradient-bg text-black font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-gold-glow hover:brightness-110 transition-transform active:scale-95" data-i18n="banner3_btn">
+                Активировать Промокод
+              </button>
+            </div>
+          </div>
+          <div class="hidden lg:flex absolute right-16 top-1/2 -translate-y-1/2">
+            <i class="fa-solid fa-gift text-8xl text-gold-400 drop-shadow-[0_0_45px_rgba(212,175,55,0.7)]"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CAROUSEL DOTS -->
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2.5 z-20">
+        <button onclick="setBannerSlide(0)" class="banner-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gold-500 transition-all"></button>
+        <button onclick="setBannerSlide(1)" class="banner-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gray-600 hover:bg-gold-400 transition-all"></button>
+        <button onclick="setBannerSlide(2)" class="banner-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gray-600 hover:bg-gold-400 transition-all"></button>
+      </div>
+    </section>
+
+    <!-- GAMES SECTION -->
+    <section id="games" class="space-y-6">
+      
+      <!-- TITLE & SEARCH BAR -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-playfair font-black text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-fire text-gold-400"></i> <span data-i18n="section_games_title">Игровой Зал ASTRYX</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-gray-400 mt-1" data-i18n="section_games_sub">Выбирайте из 30 элитных игр: слоты, быстрые и настольные игры</p>
+        </div>
+
+        <!-- SEARCH INPUT -->
+        <div class="relative w-full md:w-72">
+          <input type="text" id="gameSearchInput" oninput="filterGames()" placeholder="Поиск игры..." class="w-full bg-darkCard border border-gold-500/30 rounded-xl px-4 py-2.5 pl-10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-all">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gold-500/60 text-xs"></i>
+        </div>
+      </div>
+
+      <!-- CATEGORY TABS -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs font-bold">
+        <button onclick="filterCategory('all')" class="cat-btn active border border-gold-500 bg-gold-500 text-black px-4 py-2 rounded-xl transition-all whitespace-nowrap">
+          <i class="fa-solid fa-border-all mr-1.5"></i> <span data-i18n="cat_all">Все Игры (30)</span>
+        </button>
+        <button onclick="filterCategory('slots')" class="cat-btn border border-gold-500/30 bg-darkCard text-gray-300 hover:border-gold-500 px-4 py-2 rounded-xl transition-all whitespace-nowrap">
+          <i class="fa-solid fa-cubes mr-1.5 text-gold-400"></i> <span data-i18n="cat_slots">Слоты (10)</span>
+        </button>
+        <button onclick="filterCategory('fast')" class="cat-btn border border-gold-500/30 bg-darkCard text-gray-300 hover:border-gold-500 px-4 py-2 rounded-xl transition-all whitespace-nowrap">
+          <i class="fa-solid fa-bolt mr-1.5 text-gold-400"></i> <span data-i18n="cat_fast">Быстрые Игры (10)</span>
+        </button>
+        <button onclick="filterCategory('tables')" class="cat-btn border border-gold-500/30 bg-darkCard text-gray-300 hover:border-gold-500 px-4 py-2 rounded-xl transition-all whitespace-nowrap">
+          <i class="fa-solid fa-clover mr-1.5 text-gold-400"></i> <span data-i18n="cat_table">Настольные (10)</span>
+        </button>
+      </div>
+
+      <!-- GAMES GRID (30 GAMES) -->
+      <div id="gamesGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </section>
+
+    <!-- BONUSES & PROMOTIONS SECTION -->
+    <section id="bonuses" class="space-y-6 pt-4">
+      <div class="border-b border-gold-500/20 pb-4">
+        <h2 class="text-2xl sm:text-3xl font-playfair font-black text-white flex items-center gap-3">
+          <i class="fa-solid fa-gift text-gold-400"></i> <span data-i18n="section_bonuses_title">Бонусы и Акции</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-gray-400 mt-1" data-i18n="section_bonuses_sub">Эксклюзивные предложения для привилегированных игроков</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        
+        <!-- Bonus Card 1 -->
+        <div class="bg-darkCard border border-gold-500/30 rounded-2xl p-6 relative overflow-hidden group hover:border-gold-500 transition-all shadow-lg flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="w-12 h-12 rounded-xl gold-gradient-bg flex items-center justify-center text-black text-xl font-bold">
+              <i class="fa-solid fa-piggy-bank"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors" data-i18n="b1_title">Приветственный Бонус 25%</h3>
+            <p class="text-xs text-gray-400 leading-relaxed" data-i18n="b1_desc">Получите дополнительно +25% денег на игровой баланс при любом первом пополнении счета!</p>
+          </div>
+          <button onclick="openCashierModal()" class="mt-6 w-full py-2.5 rounded-xl border border-gold-500/50 text-gold-400 hover:bg-gold-500 hover:text-black font-extrabold text-xs transition-all" data-i18n="b1_btn">Пополнить и Получить</button>
+        </div>
+
+        <!-- Bonus Card 2 -->
+        <div class="bg-darkCard border border-gold-500/30 rounded-2xl p-6 relative overflow-hidden group hover:border-gold-500 transition-all shadow-lg flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="w-12 h-12 rounded-xl gold-gradient-bg flex items-center justify-center text-black text-xl font-bold">
+              <i class="fa-solid fa-crown"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors" data-i18n="b2_title">VIP Статусы и Кэшбэк</h3>
+            <p class="text-xs text-gray-400 leading-relaxed" data-i18n="b2_desc">Продвигайтесь по уровням статусов от Bronze до ASTRYX Diamond и получайте еженедельный возврат средств.</p>
+          </div>
+          <button onclick="openVipModal()" class="mt-6 w-full py-2.5 rounded-xl border border-gold-500/50 text-gold-400 hover:bg-gold-500 hover:text-black font-extrabold text-xs transition-all" data-i18n="b2_btn">Проверить Статус</button>
+        </div>
+
+        <!-- Bonus Card 3 -->
+        <div class="bg-darkCard border border-gold-500/30 rounded-2xl p-6 relative overflow-hidden group hover:border-gold-500 transition-all shadow-lg flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="w-12 h-12 rounded-xl gold-gradient-bg flex items-center justify-center text-black text-xl font-bold">
+              <i class="fa-solid fa-ticket"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors" data-i18n="b3_title">Секретный Промокод</h3>
+            <p class="text-xs text-gray-400 leading-relaxed" data-i18n="b3_desc">Активируйте код <span class="text-gold-400 font-mono font-bold">ASTRYX2026</span> или <span class="text-gold-400 font-mono font-bold">VEGAS2026</span> для моментального бонуса $50.</p>
+          </div>
+          <button onclick="openVipModal()" class="mt-6 w-full py-2.5 rounded-xl border border-gold-500/50 text-gold-400 hover:bg-gold-500 hover:text-black font-extrabold text-xs transition-all" data-i18n="b3_btn">Ввести Промокод</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="bg-darkCard border border-gold-500/30 rounded-2xl p-6 sm:p-10 relative overflow-hidden shadow-2xl">
+      <div class="max-w-3xl space-y-4 relative z-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-gold-400" data-i18n="about_tag">Премиальный Сервис</span>
+        <h2 class="text-2xl sm:text-4xl font-playfair font-black text-white" data-i18n="about_title">О Казино ASTRYX</h2>
+        <p class="text-xs sm:text-sm text-gray-300 leading-relaxed" data-i18n="about_desc">
+          ASTRYX — это элитное онлайн-казино, спроектированное в лучших традициях роскошного Лас-Вегаса. Мы предоставляем сервис высочайшего класса, гарантируя полную приватность, быструю обработку платежей и эксклюзивную игровую атмосферу.
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 text-center">
+          <div class="p-3 bg-black/50 rounded-xl border border-gold-500/20">
+            <div class="text-lg font-bold text-gold-400">100%</div>
+            <div class="text-[9px] text-gray-400 uppercase tracking-wider" data-i18n="stat_security">Безопасность</div>
+          </div>
+          <div class="p-3 bg-black/50 rounded-xl border border-gold-500/20">
+            <div class="text-lg font-bold text-gold-400">24/7</div>
+            <div class="text-[9px] text-gray-400 uppercase tracking-wider" data-i18n="stat_support">Поддержка</div>
+          </div>
+          <div class="p-3 bg-black/50 rounded-xl border border-gold-500/20">
+            <div class="text-lg font-bold text-gold-400">30</div>
+            <div class="text-[9px] text-gray-400 uppercase tracking-wider" data-i18n="stat_games">Игр в каталоге</div>
+          </div>
+          <div class="p-3 bg-black/50 rounded-xl border border-gold-500/20">
+            <div class="text-lg font-bold text-gold-400">VIP</div>
+            <div class="text-[9px] text-gray-400 uppercase tracking-wider" data-i18n="stat_privilege">Привилегии</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-darkBg border-t border-gold-500/30 pt-8 pb-6 text-xs text-gray-400 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-9 h-9 rounded-full gold-gradient-bg p-0.5 flex items-center justify-center">
+            <div class="w-full h-full bg-black rounded-full flex items-center justify-center">
+              <i class="fa-solid fa-gem text-gold-400 text-sm"></i>
+            </div>
+          </div>
+          <span class="font-playfair text-lg font-bold gold-gradient-text tracking-widest">ASTRYX CASINO</span>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <button onclick="openSupportModal()" class="hover:text-gold-400 transition-colors flex items-center gap-1.5 text-xs">
+            <i class="fa-solid fa-headset text-gold-500"></i> <span data-i18n="nav_support">Чат Поддержки 24/7</span>
+          </button>
+          <div class="flex items-center space-x-2 text-xs">
+            <i class="fa-solid fa-globe text-gold-500"></i>
+            <span data-i18n="footer_lang">Язык:</span>
+            <button onclick="toggleLanguage()" class="text-gold-400 font-bold hover:underline">
+              <span id="footerLangLabel">Русский (RU)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 pt-4 flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left text-[11px] text-gray-500">
+        <p>© 2026 ASTRYX Casino. Все права защищены. Доступ строго 18+.</p>
+        <div class="flex items-center space-x-4">
+          <i class="fa-brands fa-cc-visa text-base text-gray-400"></i>
+          <i class="fa-brands fa-cc-mastercard text-base text-gray-400"></i>
+          <i class="fa-brands fa-bitcoin text-base text-gray-400"></i>
+          <i class="fa-solid fa-shield-halved text-base text-gold-500"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING LIVE SUPPORT CHAT BUTTON -->
+  <button onclick="openSupportModal()" class="fixed bottom-5 right-5 z-40 shimmer gold-gradient-bg text-black p-3.5 sm:p-4 rounded-full shadow-gold-glow hover:scale-110 transition-transform flex items-center justify-center">
+    <i class="fa-solid fa-comments text-lg sm:text-xl"></i>
+  </button>
+
+  <!-- MODAL: ADMIN PANEL & TELEGRAM HUB -->
+  <div id="adminModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-darkCard border border-gold-500/60 rounded-2xl max-w-4xl w-full h-[90vh] sm:h-[85vh] p-4 sm:p-6 relative shadow-vip flex flex-col justify-between">
+      
+      <!-- Close Button -->
+      <button onclick="closeAdminModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gold-400 text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Admin Header -->
+      <div class="border-b border-gold-500/30 pb-3 flex items-center justify-between pr-8">
+        <div>
+          <h3 class="text-base sm:text-xl font-black font-playfair gold-gradient-text flex items-center gap-2">
+            <i class="fa-solid fa-shield-halved text-gold-400"></i> ПАНЕЛЬ УПРАВЛЕНИЯ — JONIBEK TURSUNOV
+          </h3>
+          <p class="text-[10px] sm:text-xs text-gray-400 mt-0.5">Email gateway: <span class="text-gold-400 font-mono">needforspeedeasports1@gmail.com</span></p>
+        </div>
+        <div class="hidden sm:flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-xs font-bold text-emerald-400">Gateway Active</span>
+        </div>
+      </div>
+
+      <!-- Admin Navigation Tabs -->
+      <div class="flex gap-2 border-b border-gold-500/20 py-2.5 text-xs font-bold overflow-x-auto">
+        <button onclick="switchAdminTab('notifs')" id="admTabNotifs" class="adm-tab active bg-gold-500 text-black px-3 py-1.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap">
+          <i class="fa-solid fa-bell"></i> Уведомления <span id="adminNotifBadge" class="bg-black text-gold-400 text-[10px] px-1.5 py-0.5 rounded-full">0</span>
+        </button>
+        <button onclick="switchAdminTab('chat')" id="admTabChat" class="adm-tab bg-black border border-gold-500/30 text-gray-300 hover:text-gold-400 px-3 py-1.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap">
+          <i class="fa-solid fa-comments"></i> Чат Поддержки
+        </button>
+        <button onclick="switchAdminTab('email')" id="admTabEmail" class="adm-tab bg-black border border-gold-500/30 text-gray-300 hover:text-gold-400 px-3 py-1.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap">
+          <i class="fa-solid fa-envelope text-gold-400"></i> Email Шлюз
+        </button>
+        <button onclick="switchAdminTab('settings')" id="admTabSettings" class="adm-tab bg-black border border-gold-500/30 text-gray-300 hover:text-gold-400 px-3 py-1.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap">
+          <i class="fa-solid fa-gear"></i> Telegram Bot
+        </button>
+      </div>
+
+      <!-- TAB 1: NOTIFICATIONS FEED -->
+      <div id="admSectionNotifs" class="flex-grow overflow-y-auto space-y-3 py-3 text-xs">
+        <div id="adminNotifsContainer" class="space-y-2">
+          <div class="bg-black/60 border border-gold-500/20 p-3 rounded-xl text-gray-400 text-center">
+            Уведомления появятся при действиях пользователей (регистрация, пополнение, чат).
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: LIVE SUPPORT CHAT ADMIN -->
+      <div id="admSectionChat" class="flex-grow hidden flex-col py-3 space-y-3 min-h-0">
+        <div class="text-[11px] text-gold-400 font-bold uppercase tracking-wider flex items-center justify-between">
+          <span>Диалог с игроком</span>
+          <span class="text-[10px] text-gray-400 font-normal hidden sm:inline">Копия отправляется на needforspeedeasports1@gmail.com</span>
+        </div>
+        
+        <div id="adminChatMessagesBox" class="flex-grow bg-black border border-gold-500/30 rounded-xl p-3 overflow-y-auto space-y-2.5 text-xs">
+          <div class="text-gray-500 text-center italic">Здесь будут отображаться сообщения от пользователей...</div>
+        </div>
+
+        <form onsubmit="sendAdminReply(event)" class="flex gap-2 shrink-0">
+          <input type="text" id="adminReplyInput" placeholder="Ответ игроку (Jonibek Tursunov)..." required class="flex-grow bg-black border border-gold-500/40 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-gold-500">
+          <button type="submit" class="shimmer gold-gradient-bg text-black font-extrabold px-4 py-2 rounded-xl text-xs hover:brightness-110 shrink-0">
+            Отправить
+          </button>
+        </form>
+      </div>
+
+      <!-- TAB 3: EMAIL INTEGRATION TAB -->
+      <div id="admSectionEmail" class="flex-grow hidden py-3 space-y-3 text-xs overflow-y-auto">
+        <div class="bg-black/70 border border-gold-500/30 p-4 rounded-xl space-y-3">
+          <div class="flex justify-between items-center">
+            <h4 class="font-bold text-white text-xs sm:text-sm flex items-center gap-2">
+              <i class="fa-solid fa-paper-plane text-gold-400"></i> Интеграция Email Сервера
+            </h4>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold text-[10px] uppercase">Активно</span>
+          </div>
+          <p class="text-gray-300">Все обращения из чата 24/7, данные о новых регистрациях и транзакции пополнения автоматически дублируются на почту:</p>
+          <div class="bg-darkCard border border-gold-500/40 rounded-xl p-3 flex items-center justify-between font-mono text-gold-400 text-xs font-bold">
+            <span>needforspeedeasports1@gmail.com</span>
+            <i class="fa-solid fa-check-circle text-emerald-400 text-sm"></i>
+          </div>
+
+          <div class="space-y-2 pt-2">
+            <div class="text-gray-300 font-bold">Логи отправленных писем:</div>
+            <div id="emailLogContainer" class="bg-darkCard border border-gold-500/20 rounded-xl p-3 h-36 overflow-y-auto space-y-2 font-mono text-[10px] sm:text-[11px] text-gray-400">
+              <div class="text-gray-500 italic">[Система] Email шлюз запущен для needforspeedeasports1@gmail.com...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: TELEGRAM SETTINGS -->
+      <div id="admSectionSettings" class="flex-grow hidden py-3 space-y-3 text-xs overflow-y-auto">
+        <div class="bg-black/70 border border-gold-500/30 p-4 rounded-xl space-y-3">
+          <h4 class="font-bold text-white text-xs sm:text-sm">Подключение Telegram Bot</h4>
+          <p class="text-gray-400">Укажите ваш `Bot Token` и `Chat ID`, чтобы заявки отправлялись прямо в Telegram!</p>
+          
+          <div class="space-y-1.5">
+            <label class="block text-gray-300 font-bold">Telegram Bot Token:</label>
+            <input type="text" id="tgBotToken" value="7890123456:AAFx_ASTRYX_Casino_Bot_Token_Demo" class="w-full bg-darkCard border border-gold-500/30 rounded-xl px-3 py-2 text-white font-mono text-xs">
+          </div>
+          
+          <div class="space-y-1.5">
+            <label class="block text-gray-300 font-bold">Ваш Telegram Chat ID:</label>
+            <input type="text" id="tgChatId" value="123456789 (Jonibek Tursunov)" class="w-full bg-darkCard border border-gold-500/30 rounded-xl px-3 py-2 text-white font-mono text-xs">
+          </div>
+
+          <button onclick="saveTgSettings()" class="shimmer gold-gradient-bg text-black font-extrabold px-4 py-2 rounded-xl text-xs">
+            Сохранить Настройки
+          </button>
+        </div>
+      </div>
+
+      <!-- Admin Footer info -->
+      <div class="border-t border-gold-500/20 pt-2.5 flex justify-between items-center text-[10px] sm:text-[11px] text-gray-400">
+        <span>Владелец: <strong class="text-white">Jonibek Tursunov</strong></span>
+        <span>Mastercard: <strong class="text-gold-400 font-mono">5413 5252 5139 4330</strong></span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL: GAME PLAY SIMULATOR -->
+  <div id="gamePlayModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-darkCard border border-gold-500/50 rounded-2xl max-w-xl w-full p-4 sm:p-6 relative shadow-vip space-y-4 sm:space-y-5">
+      
+      <!-- Close Button -->
+      <button onclick="closeGameModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gold-400 text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between border-b border-gold-500/20 pb-3 pr-8">
+        <div>
+          <h3 id="modalGameTitle" class="text-lg sm:text-xl font-bold font-playfair text-white">Игра</h3>
+          <span id="modalGameCategory" class="text-[10px] sm:text-xs text-gold-400 uppercase tracking-widest font-semibold">Слоты</span>
+        </div>
+        
+        <!-- MODE TOGGLE (DEMO / REAL MONEY) -->
+        <div class="flex items-center bg-black/60 border border-gold-500/30 rounded-xl p-1">
+          <button id="modeDemoBtn" onclick="setGameMode('demo')" class="px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all bg-gold-500 text-black">
+            <span data-i18n="mode_demo">Демо</span>
+          </button>
+          <button id="modeRealBtn" onclick="setGameMode('real')" class="px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all text-gray-400 hover:text-white">
+            <span data-i18n="mode_real">На деньги</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- GAME REEL & SIMULATOR SCREEN -->
+      <div class="bg-black border border-gold-500/30 rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center space-y-4 relative overflow-hidden min-h-[200px]">
+        <div id="gameStatusNotice" class="text-[10px] sm:text-xs font-bold text-gold-400 uppercase tracking-widest bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/30 text-center">
+          Сделайте ставку и вращайте!
+        </div>
+
+        <!-- REELS CONTAINER -->
+        <div class="flex items-center justify-center space-x-3 sm:space-x-5 text-4xl sm:text-5xl py-2">
+          <div id="reel1" class="w-16 h-18 sm:w-20 sm:h-22 bg-darkCard border border-gold-500/40 rounded-xl flex items-center justify-center text-gold-400 shadow-inner">🎰</div>
+          <div id="reel2" class="w-16 h-18 sm:w-20 sm:h-22 bg-darkCard border border-gold-500/40 rounded-xl flex items-center justify-center text-gold-400 shadow-inner">🎰</div>
+          <div id="reel3" class="w-16 h-18 sm:w-20 sm:h-22 bg-darkCard border border-gold-500/40 rounded-xl flex items-center justify-center text-gold-400 shadow-inner">🎰</div>
+        </div>
+
+        <div id="winDisplayAlert" class="text-xs sm:text-sm font-bold text-center min-h-[20px]"></div>
+      </div>
+
+      <!-- CONTROLS & BET -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
+        <div class="flex items-center space-x-2 w-full sm:w-auto justify-center">
+          <span class="text-xs text-gray-400 font-bold uppercase" data-i18n="bet_label">Ставка:</span>
+          <button onclick="adjustBet(-5)" class="w-8 h-8 rounded-lg bg-darkCard border border-gold-500/30 text-gold-400 font-bold hover:bg-gold-500 hover:text-black transition-all">-</button>
+          <span id="currentBetDisplay" class="text-sm font-extrabold text-gold-400 font-mono w-16 text-center">$10</span>
+          <button onclick="adjustBet(5)" class="w-8 h-8 rounded-lg bg-darkCard border border-gold-500/30 text-gold-400 font-bold hover:bg-gold-500 hover:text-black transition-all">+</button>
+        </div>
+
+        <button id="spinButton" onclick="spinGame()" class="w-full sm:w-auto shimmer gold-gradient-bg text-black font-extrabold px-8 py-3 rounded-xl shadow-gold-glow hover:brightness-110 active:scale-95 transition-all text-xs uppercase tracking-wider">
+          <span data-i18n="spin_btn">ВРАЩАТЬ (SPIN)</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL: CASHIER / DEPOSIT -->
+  <div id="cashierModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-darkCard border border-gold-500/50 rounded-2xl max-w-lg w-full p-4 sm:p-6 relative shadow-vip space-y-4 sm:space-y-5">
+      <button onclick="closeCashierModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gold-400 text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="border-b border-gold-500/20 pb-3 pr-8">
+        <h3 class="text-lg sm:text-xl font-bold font-playfair text-white flex items-center gap-2">
+          <i class="fa-solid fa-wallet text-gold-400"></i> <span data-i18n="cashier_title">Пополнение Счета ASTRYX</span>
+        </h3>
+        <p class="text-xs text-gray-400" data-i18n="cashier_sub">Выберите удобный способ оплаты</p>
+      </div>
+
+      <!-- PAYMENT METHOD SWITCHER -->
+      <div class="grid grid-cols-3 gap-2 text-[11px] font-bold">
+        <button class="pay-method-btn active border border-gold-500 bg-gold-500/20 text-gold-400 p-2 sm:p-2.5 rounded-xl text-center">
+          <i class="fa-solid fa-credit-card block text-sm mb-0.5"></i> Card (Visa/MC)
+        </button>
+        <button class="pay-method-btn border border-gold-500/30 bg-black text-gray-400 p-2 sm:p-2.5 rounded-xl text-center">
+          <i class="fa-brands fa-bitcoin block text-sm mb-0.5"></i> Crypto (BTC/USDT)
+        </button>
+        <button class="pay-method-btn border border-gold-500/30 bg-black text-gray-400 p-2 sm:p-2.5 rounded-xl text-center">
+          <i class="fa-solid fa-paper-plane block text-sm mb-0.5"></i> Telegram Pay
+        </button>
+      </div>
+
+      <!-- MASTERCARD REQUISITES BOX -->
+      <div class="bg-black/70 border border-gold-500/40 rounded-xl p-3.5 space-y-2.5">
+        <div class="flex items-center justify-between text-xs">
+          <span class="text-gray-400 uppercase tracking-wider font-bold" data-i18n="req_title">Реквизиты для перевода</span>
+          <span class="px-2 py-0.5 rounded bg-gold-500/20 text-gold-400 font-bold text-[10px]">Mastercard</span>
+        </div>
+        <div class="space-y-1">
+          <div class="text-[11px] text-gray-400" data-i18n="card_number_label">Номер карты:</div>
+          <div class="flex items-center justify-between bg-darkCard border border-gold-500/30 rounded-lg px-3 py-2 font-mono text-xs sm:text-sm text-gold-400 font-bold">
+            <span id="cardNumberText">5413 5252 5139 4330</span>
+            <button onclick="copyCardNumber()" class="text-xs text-gray-400 hover:text-white ml-2 p-1">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+        </div>
+        <div class="flex justify-between items-center text-xs text-gray-300 pt-0.5">
+          <span data-i18n="holder_label">Получатель:</span>
+          <span class="font-bold text-white">Jonibek Tursunov</span>
+        </div>
+      </div>
+
+      <!-- AMOUNT INPUT & CALCULATION -->
+      <div class="space-y-2.5">
+        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider" data-i18n="deposit_amount_label">Сумма пополнения ($):</label>
+        <input type="number" id="depositAmountInput" oninput="calculateBonusPreview()" value="100" min="10" class="w-full bg-black border border-gold-500/30 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white font-mono focus:outline-none focus:border-gold-500">
+        
+        <div class="flex items-center justify-between text-xs bg-gold-500/10 border border-gold-500/20 rounded-xl p-2.5">
+          <span class="text-gray-300" data-i18n="bonus_calc_label">Бонус +25%:</span>
+          <span id="bonusPreviewDisplay" class="font-extrabold text-gold-400 font-mono">+$25.00</span>
+        </div>
+      </div>
+
+      <!-- CONFIRM BUTTON SIMULATOR -->
+      <button onclick="simulateDeposit()" class="w-full shimmer gold-gradient-bg text-black font-extrabold py-3 rounded-xl shadow-gold-glow hover:brightness-110 active:scale-95 transition-all text-xs sm:text-sm">
+        <span data-i18n="confirm_deposit_btn">Я перевел деньги (Пополнить баланс)</span>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- MODAL: VIP CLUB & PROMOCODE -->
+  <div id="vipModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-darkCard border border-gold-500/50 rounded-2xl max-w-lg w-full p-4 sm:p-6 relative shadow-vip space-y-5">
+      <button onclick="closeVipModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gold-400 text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="border-b border-gold-500/20 pb-3 pr-8">
+        <h3 class="text-lg sm:text-xl font-bold font-playfair text-white flex items-center gap-2">
+          <i class="fa-solid fa-crown text-gold-400"></i> <span data-i18n="vip_modal_title">VIP-Клуб ASTRYX & Промокоды</span>
+        </h3>
+        <p class="text-xs text-gray-400" data-i18n="vip_modal_sub">Повышайте статус и активируйте подарочные бонусы</p>
+      </div>
+
+      <!-- VIP STATUS PROGRESS -->
+      <div class="bg-black/60 border border-gold-500/30 rounded-xl p-3.5 space-y-2.5">
+        <div class="flex justify-between items-center text-xs font-bold">
+          <span class="text-gold-400" data-i18n="vip_status_label">Текущий Статус: BRONZE VIP</span>
+          <span class="text-gray-400">0 / 1000 XP</span>
+        </div>
+        <div class="w-full h-2.5 bg-darkCard rounded-full overflow-hidden border border-gold-500/30">
+          <div class="h-full bg-gold-500 w-1/12"></div>
+        </div>
+      </div>
+
+      <!-- PROMOCODE INPUT SECTION -->
+      <div class="space-y-2.5 pt-1">
+        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider" data-i18n="promo_input_label">Введите Секретный Промокод:</label>
+        <div class="flex gap-2">
+          <input type="text" id="promoCodeInput" placeholder="ASTRYX2026 или VEGAS2026" class="w-full bg-black border border-gold-500/30 rounded-xl px-3.5 py-2 text-xs text-white uppercase font-mono focus:outline-none focus:border-gold-500">
+          <button onclick="activatePromoCode()" class="shimmer gold-gradient-bg text-black font-extrabold text-xs px-4 rounded-xl whitespace-nowrap hover:brightness-110 active:scale-95">
+            <span data-i18n="apply_btn">Применить</span>
+          </button>
+        </div>
+        <div id="promoNoticeAlert" class="text-xs font-bold min-h-[16px]"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL: AUTH / REGISTRATION / LOGIN -->
+  <div id="authModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-darkCard border border-gold-500/50 rounded-2xl max-w-md w-full p-4 sm:p-6 relative shadow-vip space-y-5">
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gold-400 text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="border-b border-gold-500/20 pb-3 text-center">
+        <h3 id="authModalTitle" class="text-lg sm:text-xl font-bold font-playfair text-white">Вход в ASTRYX</h3>
+        <p class="text-xs text-gray-400 mt-0.5" data-i18n="auth_sub">Выберите удобный способ входа или регистрации</p>
+      </div>
+
+      <!-- AUTH TABS -->
+      <div class="grid grid-cols-4 gap-1 bg-black p-1 rounded-xl border border-gold-500/30 text-[10px] font-bold">
+        <button onclick="setAuthTab('email')" class="auth-tab-btn active bg-gold-500 text-black py-1.5 rounded-lg text-center">Email</button>
+        <button onclick="setAuthTab('phone')" class="auth-tab-btn text-gray-400 py-1.5 rounded-lg text-center">Телефон</button>
+        <button onclick="setAuthTab('telegram')" class="auth-tab-btn text-gray-400 py-1.5 rounded-lg text-center">Telegram</button>
+        <button onclick="setAuthTab('crypto')" class="auth-tab-btn text-gray-400 py-1.5 rounded-lg text-center">Crypto</button>
+      </div>
+
+      <!-- FORM -->
+      <form onsubmit="handleAuthSubmit(event)" class="space-y-4">
+        <div id="authFormInputs" class="space-y-3">
+          <input type="email" placeholder="Ваш Email" required class="w-full bg-black border border-gold-500/30 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-gold-500">
+          <input type="password" placeholder="Пароль" required class="w-full bg-black border border-gold-500/30 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-gold-500">
+        </div>
+
+        <button type="submit" class="w-full shimmer gold-gradient-bg text-black font-extrabold py-3 rounded-xl shadow-gold-glow hover:brightness-110 active:scale-95 transition-all text-xs uppercase tracking-wider">
+          <span id="authSubmitBtnLabel">Войти в Кабинет</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- MODAL: SUPPORT CHAT 24/7 -->
+  <div id="supportModal" class="fixed bottom-16 sm:bottom-20 right-3 sm:right-6 z-50 bg-darkCard border border-gold-500/50 rounded-2xl w-[92vw] sm:w-96 h-[440px] hidden flex-col shadow-vip overflow-hidden max-w-sm">
+    
+    <!-- Chat Header -->
+    <div class="gold-gradient-bg p-3.5 flex items-center justify-between text-black">
+      <div class="flex items-center space-x-2">
+        <i class="fa-solid fa-headset text-base"></i>
+        <div>
+          <h4 class="font-bold text-xs uppercase tracking-wider">Поддержка ASTRYX 24/7</h4>
+          <span class="text-[9px] font-semibold opacity-80">Онлайн | Оператор на связи</span>
+        </div>
+      </div>
+      <button onclick="closeSupportModal()" class="text-black hover:opacity-75 text-lg p-1">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Chat Messages Container -->
+    <div id="chatMessagesBox" class="flex-grow p-3 overflow-y-auto space-y-2.5 text-xs bg-black/80">
+      <div class="bg-darkCard border border-gold-500/30 p-2.5 rounded-xl max-w-[85%] text-gray-200">
+        Здравствуйте! Добро пожаловать в службу поддержки ASTRYX Casino. Чем мы можем вам помочь?
+      </div>
+    </div>
+
+    <!-- Chat Input Form -->
+    <form onsubmit="sendChatMessage(event)" class="p-2.5 bg-darkCard border-t border-gold-500/20 flex gap-2">
+      <input type="text" id="chatInputText" placeholder="Напишите сообщение..." required class="flex-grow bg-black border border-gold-500/30 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-gold-500">
+      <button type="submit" class="gold-gradient-bg text-black font-bold px-3 py-2 rounded-xl text-xs hover:brightness-110">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </form>
+
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // --- STATE MANAGEMENT ---
+    let currentLang = 'RU';
+    let playerBalance = 0.00;
+    let currentGameMode = 'demo'; // 'demo' or 'real'
+    let currentBet = 10;
+    let activeBannerIndex = 0;
+    let isSpinning = false;
+    let currentSelectedGame = null;
+    let adminNotifCount = 0;
+
+    // Win rates
+    const DEMO_WIN_RATE = 0.65;
+    const REAL_WIN_RATE = 0.09;
+
+    // --- 30 GAMES DATA CATALOG ---
+    const gamesCatalog = [
+      // SLOTS (10)
+      { id: 'g1', title: 'Gates of Olympus', category: 'slots', icon: '⚡', color: 'from-amber-600 to-yellow-400', tag: 'HOT' },
+      { id: 'g2', title: 'Sweet Bonanza', category: 'slots', icon: '🍭', color: 'from-pink-500 to-purple-500', tag: 'POPULAR' },
+      { id: 'g3', title: 'Book of Ra', category: 'slots', icon: '📜', color: 'from-yellow-700 to-amber-500', tag: 'CLASSIC' },
+      { id: 'g4', title: 'Sun of Egypt', category: 'slots', icon: '☀️', color: 'from-orange-600 to-amber-400', tag: 'TOP' },
+      { id: 'g5', title: 'Dog House Megaways', category: 'slots', icon: '🐶', color: 'from-amber-800 to-yellow-600', tag: 'HOT' },
+      { id: 'g6', title: 'Sugar Rush', category: 'slots', icon: '🍬', color: 'from-pink-600 to-rose-400', tag: 'NEW' },
+      { id: 'g7', title: 'Big Bass Splash', category: 'slots', icon: '🐟', color: 'from-blue-600 to-cyan-400', tag: 'POPULAR' },
+      { id: 'g8', title: 'Starlight Princess', category: 'slots', icon: '👑', color: 'from-purple-600 to-pink-400', tag: 'TOP' },
+      { id: 'g9', title: 'Wanted Dead or Wild', category: 'slots', icon: '🤠', color: 'from-amber-900 to-stone-700', tag: 'HOT' },
+      { id: 'g10', title: 'Razor Shark', category: 'slots', icon: '🦈', color: 'from-cyan-700 to-blue-500', tag: 'NEW' },
+
+      // FAST / CRASH GAMES (10)
+      { id: 'g11', title: 'Aviator', category: 'fast', icon: '✈️', color: 'from-red-600 to-rose-500', tag: 'TOP' },
+      { id: 'g12', title: 'JetX', category: 'fast', icon: '🚀', color: 'from-amber-500 to-yellow-300', tag: 'HOT' },
+      { id: 'g13', title: 'Mines', category: 'fast', icon: '💣', color: 'from-zinc-800 to-stone-600', tag: 'POPULAR' },
+      { id: 'g14', title: 'Plinko', category: 'fast', icon: '⚪', color: 'from-indigo-600 to-blue-400', tag: 'HOT' },
+      { id: 'g15', title: 'Dice High', category: 'fast', icon: '🎲', color: 'from-emerald-600 to-teal-400', tag: 'CLASSIC' },
+      { id: 'g16', title: 'Crash X', category: 'fast', icon: '📈', color: 'from-violet-600 to-purple-400', tag: 'NEW' },
+      { id: 'g17', title: 'Spaceman', category: 'fast', icon: '👨‍🚀', color: 'from-blue-800 to-indigo-600', tag: 'TOP' },
+      { id: 'g18', title: 'Zeppelin', category: 'fast', icon: '🎈', color: 'from-sky-600 to-blue-400', tag: 'POPULAR' },
+      { id: 'g19', title: 'Limbo Rocket', category: 'fast', icon: '🎯', color: 'from-emerald-700 to-green-500', tag: 'NEW' },
+      { id: 'g20', title: 'Hotline Crash', category: 'fast', icon: '🔥', color: 'from-orange-600 to-red-500', tag: 'HOT' },
+
+      // TABLE / CASINO GAMES (10)
+      { id: 'g21', title: 'European Roulette', category: 'tables', icon: '🎡', color: 'from-emerald-800 to-green-600', tag: 'CLASSIC' },
+      { id: 'g22', title: 'Blackjack VIP', category: 'tables', icon: '♠️', color: 'from-zinc-900 to-neutral-800', tag: 'VIP' },
+      { id: 'g23', title: 'Baccarat Gold', category: 'tables', icon: '🎴', color: 'from-amber-700 to-yellow-500', tag: 'VIP' },
+      { id: 'g24', title: 'Texas Hold\'em', category: 'tables', icon: '🃏', color: 'from-rose-800 to-red-600', tag: 'POPULAR' },
+      { id: 'g25', title: 'American Roulette', category: 'tables', icon: '🎰', color: 'from-red-900 to-rose-700', tag: 'TOP' },
+      { id: 'g26', title: 'Classic Blackjack', category: 'tables', icon: '♣️', color: 'from-stone-800 to-zinc-700', tag: 'CLASSIC' },
+      { id: 'g27', title: 'Caribbean Stud', category: 'tables', icon: '♦️', color: 'from-blue-900 to-indigo-700', tag: 'HOT' },
+      { id: 'g28', title: 'Video Poker', category: 'tables', icon: '♥️', color: 'from-purple-900 to-pink-700', tag: 'CLASSIC' },
+      { id: 'g29', title: 'Craps Live', category: 'tables', icon: '🎲', color: 'from-yellow-800 to-amber-600', tag: 'NEW' },
+      { id: 'g30', title: 'Wheel of Fortune', category: 'tables', icon: '🎡', color: 'from-orange-500 to-yellow-400', tag: 'TOP' }
+    ];
+
+    // --- TRANSLATIONS DICTIONARY ---
+    const translations = {
+      RU: {
+        nav_games: 'Игры',
+        nav_bonuses: 'Бонусы',
+        nav_vip: 'VIP-клуб',
+        nav_about: 'О нас',
+        nav_support: 'Поддержка 24/7',
+        balance_label: 'Баланс',
+        deposit_btn: 'Пополнить',
+        login_btn: 'Вход',
+        register_btn: 'Регистрация',
+        section_games_title: 'Игровой Зал ASTRYX',
+        section_games_sub: 'Выбирайте из 30 элитных игр: слоты, быстрые и настольные игры',
+        cat_all: 'Все Игры (30)',
+        cat_slots: 'Слоты (10)',
+        cat_fast: 'Быстрые Игры (10)',
+        cat_table: 'Настольные (10)',
+        section_bonuses_title: 'Бонусы и Акции',
+        section_bonuses_sub: 'Эксклюзивные предложения для каждого привилегированного игрока',
+        mode_demo: 'Демо',
+        mode_real: 'На деньги',
+        bet_label: 'Ставка:',
+        spin_btn: 'ВРАЩАТЬ (SPIN)',
+        cashier_title: 'Пополнение Счета ASTRYX',
+        cashier_sub: 'Выберите удобный способ оплаты',
+        req_title: 'Реквизиты для перевода',
+        card_number_label: 'Номер карты:',
+        holder_label: 'Получатель:',
+        deposit_amount_label: 'Сумма пополнения ($):',
+        bonus_calc_label: 'Бонус +25%:',
+        confirm_deposit_btn: 'Я перевел деньги (Пополнить баланс)',
+        vip_modal_title: 'VIP-Клуб ASTRYX & Промокоды',
+        vip_modal_sub: 'Повышайте статус и активируйте подарочные бонусы',
+        vip_status_label: 'Текущий Статус: BRONZE VIP',
+        promo_input_label: 'Введите Секретный Промокод:',
+        apply_btn: 'Применить',
+        auth_sub: 'Выберите удобный способ входа или регистрации',
+        footer_lang: 'Язык:',
+        banner1_tag: '⚡ Приветственный пакет ASTRYX',
+        banner1_title: '+25% К ДЕПОЗИТУ',
+        banner1_subtitle: 'НА ПЕРВОЕ ПОПОЛНЕНИЕ',
+        banner1_desc: 'Пополните счет прямо сейчас, получите эксклюзивный бонус 25% и начните путь к джекпоту в элитном клубе ASTRYX.',
+        banner1_btn: 'Получить Бонус 25%',
+        banner2_tag: '👑 Привилегии ASTRYX VIP',
+        banner2_title: 'VIP СТАТУСЫ',
+        banner2_subtitle: 'И ПЕРСОНАЛЬНЫЙ КЕШБЭК',
+        banner2_desc: 'Повышайте уровень игрока, получайте индивидуальные подарки, ускоренные выплаты и личного менеджера 24/7.',
+        banner2_btn: 'Узнать о VIP Статусах',
+        banner3_tag: '🎁 Эксклюзивный Промокод',
+        banner3_subtitle: 'ПОЛУЧИТЕ $50 НА БАЛАНС',
+        banner3_desc: 'Введите промокод в разделе VIP/Промокоды и моментально активируйте ваш подарочный баланс!',
+        banner3_btn: 'Активировать Промокод',
+        about_tag: 'Премиальный Сервис',
+        about_title: 'О Казино ASTRYX',
+        about_desc: 'ASTRYX — это элитное онлайн-казино, спроектированное в лучших традициях роскошного Лас-Вегаса. Мы предоставляем сервис высочайшего класса, гарантируя полную приватность, быструю обработку платежей и эксклюзивную игровую атмосферу.',
+        stat_security: 'Безопасность',
+        stat_support: 'Поддержка',
+        stat_games: 'Игр в каталоге',
+        stat_privilege: 'Привилегии'
+      },
+      EN: {
+        nav_games: 'Games',
+        nav_bonuses: 'Bonuses',
+        nav_vip: 'VIP Club',
+        nav_about: 'About Us',
+        nav_support: 'Support 24/7',
+        balance_label: 'Balance',
+        deposit_btn: 'Deposit',
+        login_btn: 'Login',
+        register_btn: 'Register',
+        section_games_title: 'ASTRYX Gaming Hall',
+        section_games_sub: 'Choose from 30 elite games: slots, fast games and table games',
+        cat_all: 'All Games (30)',
+        cat_slots: 'Slots (10)',
+        cat_fast: 'Fast Games (10)',
+        cat_table: 'Table Games (10)',
+        section_bonuses_title: 'Bonuses & Promotions',
+        section_bonuses_sub: 'Exclusive offers for every privileged player',
+        mode_demo: 'Demo',
+        mode_real: 'Real Money',
+        bet_label: 'Bet:',
+        spin_btn: 'SPIN NOW',
+        cashier_title: 'Deposit Funds to ASTRYX',
+        cashier_sub: 'Choose your preferred payment method',
+        req_title: 'Transfer Details',
+        card_number_label: 'Card Number:',
+        holder_label: 'Beneficiary:',
+        deposit_amount_label: 'Deposit Amount ($):',
+        bonus_calc_label: 'Bonus +25%:',
+        confirm_deposit_btn: 'I Transferred Funds (Credit Balance)',
+        vip_modal_title: 'ASTRYX VIP Club & Promo Codes',
+        vip_modal_sub: 'Upgrade your status and activate gift bonuses',
+        vip_status_label: 'Current Status: BRONZE VIP',
+        promo_input_label: 'Enter Secret Promo Code:',
+        apply_btn: 'Apply',
+        auth_sub: 'Select your preferred login or registration method',
+        footer_lang: 'Language:',
+        banner1_tag: '⚡ ASTRYX Welcome Package',
+        banner1_title: '+25% ON DEPOSIT',
+        banner1_subtitle: 'FOR FIRST TOP-UP',
+        banner1_desc: 'Top up your account right now, get an exclusive 25% bonus and start your jackpot journey in the elite ASTRYX club.',
+        banner1_btn: 'Get 25% Bonus',
+        banner2_tag: '👑 ASTRYX VIP Privileges',
+        banner2_title: 'VIP STATUSES',
+        banner2_subtitle: '& PERSONAL CASHBACK',
+        banner2_desc: 'Raise your player level, receive individual gifts, accelerated payouts and a personal manager 24/7.',
+        banner2_btn: 'Learn about VIP Statuses',
+        banner3_tag: '🎁 Exclusive Promo Code',
+        banner3_subtitle: 'GET $50 ON BALANCE',
+        banner3_desc: 'Enter promo code in VIP section and immediately activate your bonus gift balance!',
+        banner3_btn: 'Activate Promo Code',
+        about_tag: 'Premium Service',
+        about_title: 'About ASTRYX Casino',
+        about_desc: 'ASTRYX is an elite online casino designed in the best traditions of luxury Las Vegas. We provide top-class service, privacy, instant payments, and an exclusive gaming atmosphere.',
+        stat_security: 'Security',
+        stat_support: 'Support',
+        stat_games: 'Games Available',
+        stat_privilege: 'Privileges'
+      }
+    };
+
+    // --- INITIALIZATION ---
+    window.onload = function() {
+      renderGames(gamesCatalog);
+      updateBalanceUI();
+      startBannerAutoSlide();
+    };
+
+    // --- RENDER GAMES ---
+    function renderGames(games) {
+      const grid = document.getElementById('gamesGrid');
+      grid.innerHTML = '';
+
+      games.forEach(game => {
+        const card = document.createElement('div');
+        card.className = "bg-darkCard border border-gold-500/30 rounded-2xl p-3.5 flex flex-col items-center justify-between group hover:border-gold-500 hover:shadow-gold-glow transition-all duration-300 relative overflow-hidden cursor-pointer";
+        card.onclick = () => openGameModal(game);
+
+        card.innerHTML = `
+          <div class="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-gold-500/20 border border-gold-500/40 text-[9px] font-bold text-gold-400 uppercase">
+            ${game.tag}
+          </div>
+          <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${game.color} flex items-center justify-center text-2xl sm:text-3xl shadow-lg my-2 group-hover:scale-110 transition-transform">
+            ${game.icon}
+          </div>
+          <div class="text-center w-full mt-1">
+            <h4 class="text-xs sm:text-sm font-bold text-white group-hover:text-gold-400 transition-colors truncate w-full">${game.title}</h4>
+            <span class="text-[10px] text-gray-500 uppercase font-semibold">${game.category}</span>
+          </div>
+          <button class="mt-3 w-full py-1.5 rounded-xl bg-gold-500/10 border border-gold-500/40 text-gold-400 text-[10px] font-bold group-hover:bg-gold-500 group-hover:text-black transition-all">
+            Играть
+          </button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // --- FILTER GAMES ---
+    function filterCategory(cat) {
+      document.querySelectorAll('.cat-btn').forEach(b => {
+        b.classList.remove('bg-gold-500', 'text-black', 'border-gold-500');
+        b.classList.add('bg-darkCard', 'text-gray-300', 'border-gold-500/30');
+      });
+
+      event.currentTarget.classList.remove('bg-darkCard', 'text-gray-300', 'border-gold-500/30');
+      event.currentTarget.classList.add('bg-gold-500', 'text-black', 'border-gold-500');
+
+      if (cat === 'all') {
+        renderGames(gamesCatalog);
+      } else {
+        const filtered = gamesCatalog.filter(g => g.category === cat);
+        renderGames(filtered);
+      }
+    }
+
+    function filterGames() {
+      const q = document.getElementById('gameSearchInput').value.toLowerCase().trim();
+      const filtered = gamesCatalog.filter(g => g.title.toLowerCase().includes(q));
+      renderGames(filtered);
+    }
+
+    // --- GAME SIMULATOR LOGIC ---
+    function openGameModal(game) {
+      currentSelectedGame = game;
+      document.getElementById('modalGameTitle').innerText = game.title;
+      document.getElementById('modalGameCategory').innerText = game.category.toUpperCase();
+      document.getElementById('winDisplayAlert').innerText = '';
+      document.getElementById('gameStatusNotice').innerText = 'Сделайте ставку и вращайте!';
+      document.getElementById('gamePlayModal').classList.remove('hidden');
+    }
+
+    function closeGameModal() {
+      document.getElementById('gamePlayModal').classList.add('hidden');
+    }
+
+    function setGameMode(mode) {
+      currentGameMode = mode;
+      const demoBtn = document.getElementById('modeDemoBtn');
+      const realBtn = document.getElementById('modeRealBtn');
+
+      if (mode === 'demo') {
+        demoBtn.className = 'px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all bg-gold-500 text-black';
+        realBtn.className = 'px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all text-gray-400 hover:text-white';
+        document.getElementById('gameStatusNotice').innerText = 'Режим: ДЕМО (Шанс выигрыша 65%)';
+      } else {
+        realBtn.className = 'px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all bg-gold-500 text-black';
+        demoBtn.className = 'px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all text-gray-400 hover:text-white';
+        document.getElementById('gameStatusNotice').innerText = 'Режим: НА ДЕНЬГИ (Реальный баланс)';
+      }
+    }
+
+    function adjustBet(delta) {
+      currentBet = Math.max(5, currentBet + delta);
+      document.getElementById('currentBetDisplay').innerText = `$${currentBet}`;
+    }
+
+    function spinGame() {
+      if (isSpinning) return;
+
+      if (currentGameMode === 'real' && playerBalance < currentBet) {
+        alert('Недостаточно средств на балансе! Пополните счет в кассе.');
+        openCashierModal();
+        return;
+      }
+
+      isSpinning = true;
+      const btn = document.getElementById('spinButton');
+      btn.disabled = true;
+      btn.classList.add('opacity-50');
+
+      if (currentGameMode === 'real') {
+        playerBalance -= currentBet;
+        updateBalanceUI();
+      }
+
+      const symbols = ['🎰', '💎', '👑', '7️⃣', '🔔', '🍒', '🍋', '⭐'];
+      const r1 = document.getElementById('reel1');
+      const r2 = document.getElementById('reel2');
+      const r3 = document.getElementById('reel3');
+      const alertBox = document.getElementById('winDisplayAlert');
+
+      alertBox.innerText = 'Вращение...';
+      alertBox.className = 'text-xs sm:text-sm font-bold text-center text-gold-400 animate-pulse';
+
+      let count = 0;
+      const interval = setInterval(() => {
+        r1.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+        r2.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+        r3.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+        count++;
+        if (count > 12) {
+          clearInterval(interval);
+          finishSpin();
+        }
+      }, 80);
+    }
+
+    function finishSpin() {
+      const r1 = document.getElementById('reel1');
+      const r2 = document.getElementById('reel2');
+      const r3 = document.getElementById('reel3');
+      const alertBox = document.getElementById('winDisplayAlert');
+
+      // Hidden Win Rate Logic
+      const winChance = (currentGameMode === 'demo') ? DEMO_WIN_RATE : REAL_WIN_RATE;
+      const isWin = Math.random() < winChance;
+
+      if (isWin) {
+        const luckySymbol = '💎';
+        r1.innerText = luckySymbol;
+        r2.innerText = luckySymbol;
+        r3.innerText = luckySymbol;
+
+        const winAmount = currentBet * (currentGameMode === 'demo' ? 3.5 : 2.5);
+
+        if (currentGameMode === 'real') {
+          playerBalance += winAmount;
+          updateBalanceUI();
+        }
+
+        alertBox.innerText = `Победа! Вы выиграли $${winAmount.toFixed(2)}! 🎉`;
+        alertBox.className = 'text-xs sm:text-sm font-extrabold text-center text-emerald-400 animate-bounce';
+      } else {
+        r1.innerText = '🍒';
+        r2.innerText = '🔔';
+        r3.innerText = '7️⃣';
+
+        alertBox.innerText = 'Увы, не повезло. Попробуйте еще раз!';
+        alertBox.className = 'text-xs sm:text-sm font-bold text-center text-rose-400';
+      }
+
+      isSpinning = false;
+      const btn = document.getElementById('spinButton');
+      btn.disabled = false;
+      btn.classList.remove('opacity-50');
+    }
+
+    // --- CASHIER & BALANCE ---
+    function updateBalanceUI() {
+      document.getElementById('playerBalanceDisplay').innerText = `$${playerBalance.toFixed(2)}`;
+    }
+
+    function openCashierModal() {
+      document.getElementById('cashierModal').classList.remove('hidden');
+    }
+
+    function closeCashierModal() {
+      document.getElementById('cashierModal').classList.add('hidden');
+    }
+
+    function copyCardNumber() {
+      const num = document.getElementById('cardNumberText').innerText;
+      navigator.clipboard.writeText(num).then(() => {
+        alert('Номер карты 5413 5252 5139 4330 скопирован!');
+      }).catch(() => {
+        alert('Карта: 5413 5252 5139 4330 (Jonibek Tursunov)');
+      });
+    }
+
+    function calculateBonusPreview() {
+      const val = parseFloat(document.getElementById('depositAmountInput').value) || 0;
+      const bonus = val * 0.25;
+      document.getElementById('bonusPreviewDisplay').innerText = `+$${bonus.toFixed(2)}`;
+    }
+
+    function simulateDeposit() {
+      const amount = parseFloat(document.getElementById('depositAmountInput').value) || 0;
+      if (amount <= 0) {
+        alert("Введите корректную сумму!");
+        return;
+      }
+
+      const totalAmount = amount + (amount * 0.25);
+      playerBalance += totalAmount;
+      updateBalanceUI();
+      closeCashierModal();
+
+      pushAdminNotification(
+        'deposit',
+        '💳 ПОПОЛНЕНИЕ СЧЕТА ИГРОКА',
+        `Сумма: <strong>$${amount}</strong> (Бонус +25%: $${(amount * 0.25).toFixed(2)})<br>Итого зачислено: <strong>$${totalAmount.toFixed(2)}</strong><br>Карта получателя: <code>5413 5252 5139 4330</code> (Jonibek Tursunov)`
+      );
+
+      logEmailDispatch('Новый Запрос на Пополнение Счета', `Сумма: $${amount}, Начислено с бонусом: $${totalAmount.toFixed(2)}. Карта: 5413 5252 5139 4330 (Jonibek Tursunov)`);
+
+      alert(`Успешно! На ваш баланс зачислено $${totalAmount.toFixed(2)} (включая 25% бонуса). Уведомление отправлено на needforspeedeasports1@gmail.com.`);
+    }
+
+    // --- VIP & PROMO ---
+    function openVipModal() {
+      document.getElementById('vipModal').classList.remove('hidden');
+    }
+
+    function closeVipModal() {
+      document.getElementById('vipModal').classList.add('hidden');
+    }
+
+    function activatePromoCode() {
+      const code = document.getElementById('promoCodeInput').value.trim().toUpperCase();
+      const alert = document.getElementById('promoNoticeAlert');
+
+      if (code === 'ASTRYX2026' || code === 'VEGAS2026') {
+        playerBalance += 50.00;
+        updateBalanceUI();
+        alert.innerText = 'Промокод активирован! Вам начислено $50.00 на баланс! 🎉';
+        alert.className = 'text-xs font-bold text-emerald-400';
+
+        pushAdminNotification('promo', '🎁 АКТИВАЦИЯ ПРОМОКОДА', `Игрок активировал промокод <strong>${code}</strong> на $50.00.`);
+        logEmailDispatch('Активация Промокода', `Пользователь активировал промокод ${code} (+$50.00).`);
+      } else {
+        alert.innerText = 'Неверный промокод или он уже использован.';
+        alert.className = 'text-xs font-bold text-rose-400';
+      }
+    }
+
+    // --- AUTHENTICATION ---
+    function openAuthModal(mode) {
+      document.getElementById('authModalTitle').innerText = (mode === 'register') ? 'Регистрация в ASTRYX' : 'Вход в ASTRYX';
+      document.getElementById('authSubmitBtnLabel').innerText = (mode === 'register') ? 'Создать Аккаунт' : 'Войти в Кабинет';
+      document.getElementById('authModal').classList.remove('hidden');
+    }
+
+    function closeAuthModal() {
+      document.getElementById('authModal').classList.add('hidden');
+    }
+
+    function setAuthTab(type) {
+      document.querySelectorAll('.auth-tab-btn').forEach(b => {
+        b.classList.remove('bg-gold-500', 'text-black');
+        b.classList.add('text-gray-400');
+      });
+      event.currentTarget.classList.add('bg-gold-500', 'text-black');
+      event.currentTarget.classList.remove('text-gray-400');
+
+      const inputsBox = document.getElementById('authFormInputs');
+      if (type === 'email') {
+        inputsBox.innerHTML = `
+          <input type="email" placeholder="Ваш Email" required class="w-full bg-black border border-gold-500/30 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-gold-500">
+          <input type="password" placeholder="Пароль" required class="w-full bg-black border border-gold-500/30 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-gold-500">
+        `;
+      } else if (type === 'phone') {
+        inputsBox.innerHTML = `
+          <input type="tel" placeholder="+7 (___) ___-__-__" required class="w-full bg-black border border-gold-500/30 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-gold-500">
+        `;
+      } else if (type === 'telegram') {
+        inputsBox.innerHTML = `
+          <div class="text-center py-4 text-xs text-gold-400 font-bold">Быстрый вход в 1 клик через Telegram Bot</div>
+        `;
+      } else if (type === 'crypto') {
+        inputsBox.innerHTML = `
+          <input type="text" placeholder="Адрес кошелька (TRC20 / ERC20)" required class="w-full bg-black border border-gold-500/30 rounded-xl px-3.5 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-gold-500">
+        `;
+      }
+    }
+
+    function handleAuthSubmit(e) {
+      e.preventDefault();
+      closeAuthModal();
+
+      pushAdminNotification('reg', '🚀 НОВАЯ РЕГИСТРАЦИЯ ИГРОКА', 'Новый пользователь успешно зарегистрировался в системе ASTRYX Casino.');
+      logEmailDispatch('Новая Регистрация Пользователя', 'Игрок успешно создал аккаунт в казино ASTRYX.');
+
+      alert("Авторизация прошла успешно! Добро пожаловать в ASTRYX Casino.");
+    }
+
+    // --- LIVE CHAT SUPPORT ---
+    function openSupportModal() {
+      document.getElementById('supportModal').classList.remove('hidden');
+      document.getElementById('supportModal').classList.add('flex');
+    }
+
+    function closeSupportModal() {
+      document.getElementById('supportModal').classList.add('hidden');
+      document.getElementById('supportModal').classList.remove('flex');
+    }
+
+    function sendChatMessage(e) {
+      e.preventDefault();
+      const input = document.getElementById('chatInputText');
+      const box = document.getElementById('chatMessagesBox');
+      const text = input.value.trim();
+
+      if (!text) return;
+
+      const userMsg = document.createElement('div');
+      userMsg.className = "bg-gold-500 text-black p-2.5 rounded-xl max-w-[85%] ml-auto font-medium";
+      userMsg.innerText = text;
+      box.appendChild(userMsg);
+
+      input.value = '';
+      box.scrollTop = box.scrollHeight;
+
+      const adminChatBox = document.getElementById('adminChatMessagesBox');
+      const adminEntry = document.createElement('div');
+      adminEntry.className = "bg-darkCard border border-gold-500/30 p-2.5 rounded-xl max-w-[85%] text-gray-200 font-medium";
+      adminEntry.innerHTML = `<span class="text-[10px] text-gray-400 block mb-0.5">Игрок:</span>${text}`;
+      adminChatBox.appendChild(adminEntry);
+
+      pushAdminNotification('chat', '💬 НОВОЕ СООБЩЕНИЕ В ЧАТЕ', `Сообщение от игрока: "${text}"`);
+      logEmailDispatch('Новое Обращение в Чат Поддержки 24/7', `Сообщение: "${text}"`);
+
+      setTimeout(() => {
+        const botMsg = document.createElement('div');
+        botMsg.className = "bg-darkCard border border-gold-500/30 p-2.5 rounded-xl max-w-[85%] text-gray-200";
+        botMsg.innerText = "Ваше сообщение отправлено в службу поддержки на needforspeedeasports1@gmail.com. Оператор (Jonibek Tursunov) ответит вам в кратчайшие сроки.";
+        box.appendChild(botMsg);
+        box.scrollTop = box.scrollHeight;
+      }, 700);
+    }
+
+    // --- ADMIN PANEL FUNCTIONS ---
+    function openAdminModal() {
+      document.getElementById('adminModal').classList.remove('hidden');
+    }
+
+    function closeAdminModal() {
+      document.getElementById('adminModal').classList.add('hidden');
+    }
+
+    function switchAdminTab(tab) {
+      document.querySelectorAll('.adm-tab').forEach(b => {
+        b.classList.remove('bg-gold-500', 'text-black');
+        b.classList.add('bg-black', 'text-gray-300');
+      });
+
+      document.getElementById('admSectionNotifs').classList.add('hidden');
+      document.getElementById('admSectionChat').classList.add('hidden');
+      document.getElementById('admSectionChat').classList.remove('flex');
+      document.getElementById('admSectionEmail').classList.add('hidden');
+      document.getElementById('admSectionSettings').classList.add('hidden');
+
+      if (tab === 'notifs') {
+        document.getElementById('admTabNotifs').classList.add('bg-gold-500', 'text-black');
+        document.getElementById('admSectionNotifs').classList.remove('hidden');
+      } else if (tab === 'chat') {
+        document.getElementById('admTabChat').classList.add('bg-gold-500', 'text-black');
+        document.getElementById('admSectionChat').classList.remove('hidden');
+        document.getElementById('admSectionChat').classList.add('flex');
+      } else if (tab === 'email') {
+        document.getElementById('admTabEmail').classList.add('bg-gold-500', 'text-black');
+        document.getElementById('admSectionEmail').classList.remove('hidden');
+      } else if (tab === 'settings') {
+        document.getElementById('admTabSettings').classList.add('bg-gold-500', 'text-black');
+        document.getElementById('admSectionSettings').classList.remove('hidden');
+      }
+    }
+
+    function logEmailDispatch(subject, body) {
+      const logContainer = document.getElementById('emailLogContainer');
+      if (!logContainer) return;
+      const time = new Date().toLocaleTimeString();
+      const entry = document.createElement('div');
+      entry.className = "border-b border-gold-500/10 pb-1.5 text-gray-300";
+      entry.innerHTML = `<span class="text-gold-400 font-bold">[${time}] 📤 SENT TO needforspeedeasports1@gmail.com:</span><br><span class="text-white font-bold">${subject}</span> - ${body}`;
+      logContainer.prepend(entry);
+    }
+
+    function pushAdminNotification(type, title, details) {
+      adminNotifCount++;
+      document.getElementById('adminNotifBadge').innerText = adminNotifCount;
+
+      const container = document.getElementById('adminNotifsContainer');
+      const time = new Date().toLocaleTimeString();
+
+      let icon = "fa-bell";
+      let borderColor = "border-gold-500/30";
+      
+      if (type === 'reg') { icon = "fa-user-plus text-blue-400"; borderColor = "border-blue-500/40"; }
+      if (type === 'deposit') { icon = "fa-credit-card text-emerald-400"; borderColor = "border-emerald-500/40"; }
+      if (type === 'chat') { icon = "fa-comment text-amber-400"; borderColor = "border-amber-500/40"; }
+      if (type === 'promo') { icon = "fa-gift text-purple-400"; borderColor = "border-purple-500/40"; }
+
+      const item = document.createElement('div');
+      item.className = `bg-black border ${borderColor} p-3 rounded-xl flex items-start gap-3`;
+      item.innerHTML = `
+        <i class="fa-solid ${icon} text-sm mt-0.5"></i>
+        <div class="flex-grow space-y-1">
+          <div class="flex justify-between items-center font-bold text-white">
+            <span>${title}</span>
+            <span class="text-[10px] text-gray-500 font-mono">${time}</span>
+          </div>
+          <div class="text-gray-300 text-[11px] leading-relaxed">${details}</div>
+          <div class="text-[10px] text-gold-400 font-mono flex items-center gap-1 mt-1">
+            <i class="fa-solid fa-envelope"></i> Копия отправлена на needforspeedeasports1@gmail.com
+          </div>
+        </div>
+      `;
+
+      if (container.children.length === 1 && container.children[0].innerText.includes("Уведомления появятся")) {
+        container.innerHTML = '';
+      }
+
+      container.prepend(item);
+    }
+
+    function sendAdminReply(e) {
+      e.preventDefault();
+      const input = document.getElementById('adminReplyInput');
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      const adminChatBox = document.getElementById('adminChatMessagesBox');
+      const adminEntry = document.createElement('div');
+      adminEntry.className = "bg-gold-500 text-black p-2.5 rounded-xl max-w-[85%] ml-auto font-bold";
+      adminEntry.innerText = `[Jonibek Tursunov]: ${msg}`;
+      adminChatBox.appendChild(adminEntry);
+      adminChatBox.scrollTop = adminChatBox.scrollHeight;
+
+      const userChatBox = document.getElementById('chatMessagesBox');
+      const userEntry = document.createElement('div');
+      userEntry.className = "bg-gold-500/20 border border-gold-500/50 p-2.5 rounded-xl max-w-[85%] text-gold-300 font-semibold";
+      userEntry.innerHTML = `<span class="text-[10px] text-gold-400 font-bold block uppercase mb-0.5">👑 Оператор ASTRYX (Jonibek Tursunov):</span>${msg}`;
+      userChatBox.appendChild(userEntry);
+      userChatBox.scrollTop = userChatBox.scrollHeight;
+
+      logEmailDispatch('Ответ администратора пользователю', `Текст: "${msg}"`);
+      input.value = '';
+    }
+
+    function saveTgSettings() {
+      alert("Настройки Telegram Bot успешно сохранены!");
+    }
+
+    // --- CAROUSEL SLIDER ---
+    function setBannerSlide(index) {
+      activeBannerIndex = index;
+      const slides = document.querySelectorAll('.banner-slide');
+      const dots = document.querySelectorAll('.banner-dot');
+
+      slides.forEach((s, i) => {
+        if (i === index) {
+          s.classList.remove('opacity-0', 'pointer-events-none');
+          s.classList.add('opacity-100');
+        } else {
+          s.classList.remove('opacity-100');
+          s.classList.add('opacity-0', 'pointer-events-none');
+        }
+      });
+
+      dots.forEach((d, i) => {
+        if (i === index) {
+          d.className = 'banner-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gold-500 transition-all';
+        } else {
+          d.className = 'banner-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gray-600 hover:bg-gold-400 transition-all';
+        }
+      });
+    }
+
+    function startBannerAutoSlide() {
+      setInterval(() => {
+        activeBannerIndex = (activeBannerIndex + 1) % 3;
+        setBannerSlide(activeBannerIndex);
+      }, 6000);
+    }
+
+    // --- LANGUAGE TOGGLE ---
+    function toggleLanguage() {
+      currentLang = (currentLang === 'RU') ? 'EN' : 'RU';
+      document.getElementById('currentLangLabel').innerText = currentLang;
+      document.getElementById('footerLangLabel').innerText = (currentLang === 'RU') ? 'Русский (RU)' : 'English (EN)';
+
+      const dict = translations[currentLang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerText = dict[key];
+        }
+      });
+    }
+
+    // --- MOBILE NAV TOGGLE ---
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
